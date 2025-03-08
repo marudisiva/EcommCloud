@@ -66,6 +66,12 @@ jobs:
           minikube start --driver=docker
           minikube status
 
+      - name: Debug Kubernetes Files
+        run: |
+          pwd  # Print current working directory
+          ls -R  # List all files and folders
+          ls -R k8s/  # Show k8s/ folder contents
+
       - name: Deploy on Minikube
         run: |
           kubectl apply -f k8s/product-service-deployment.yaml
