@@ -68,10 +68,16 @@ jobs:
           minikube start --driver=docker
           minikube status
 
-      - name: Debug Kubernetes Files
+      - name: Debug Kubernetes Deployment
         run: |
-          pwd  # Print current working directory
-          ls -R  # List all files and folders
+          echo "Checking Kubernetes Pods..."
+          kubectl get pods -A
+          echo "Checking Kubernetes Deployments..."
+          kubectl get deployments -A
+          echo "Checking Kubernetes Services..."
+          kubectl get svc -A
+          echo "Checking Pod Logs..."
+          kubectl logs -l app=product-service --tail=50 || echo "❌ No logs found for product-service"
 
       - name: Deploy on Minikube
         run: |
