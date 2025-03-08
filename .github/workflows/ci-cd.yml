@@ -79,6 +79,10 @@ jobs:
           echo "Checking Pod Logs..."
           kubectl logs -l app=product-service --tail=50 || echo "❌ No logs found for product-service"
 
+      - name: List k8s Directory Contents
+        run: |
+          ls -la k8s
+
       - name: Deploy on Minikube
         run: |
           kubectl apply -f k8s/product-service-deployment.yaml
