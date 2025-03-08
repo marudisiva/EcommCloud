@@ -43,7 +43,8 @@ jobs:
 
         - name: Build Docker Image
           run: |
-            docker build -t cloud-product-service:latest -f backend/product-service/Dockerfile backend/product-service
+            eval $(minikube docker-env)
+            docker build -t cloud-product-service:latest -f backend/product-service/Dockerfile backend/product-service/
 #            docker build -t cloud-user-service:latest -f backend/user-service/Dockerfile user-service
 #            docker build -t cloud-order-service:latest -f backend/order-service/Dockerfile order-service
 #            docker build -t cloud-cart-service:latest -f backend/cart-service/Dockerfile cart-service
