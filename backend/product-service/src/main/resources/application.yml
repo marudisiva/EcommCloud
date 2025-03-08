@@ -1,4 +1,9 @@
 spring:
   application:
     name: product-service
-    datasource:
+  data:
+    mongodb:
+      uri: mongodb://mongo:27017/productdb
+      username: root
+      password: root
+      authentication-database: admin
