@@ -81,7 +81,7 @@ jobs:
 
       - name: List k8s Directory Contents
         run: |
-          ls -la
+          ls
 
       - name: Deploy on Minikube
         run: |
