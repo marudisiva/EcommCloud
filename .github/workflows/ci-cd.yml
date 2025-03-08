@@ -22,8 +22,13 @@ jobs:
             java-version: '17'
             distribution: 'temurin'
 
-        - name: Build & Test (Maven)
-          run: mvn clean package -DskipTests
+        - name: Build & Test All Microservices (Maven)
+          run: |
+            cd backend/product-service && mvn clean package -DskipTests
+#            cd ../user-service && mvn clean package -DskipTests
+#            cd ../cart-service && mvn clean package -DskipTests
+#            cd ../order-service && mvn clean package -DskipTests
+#            cd ../payment-service && mvn clean package -DskipTests
 
         - name: Install Minikube & Kubectl
           run: |
