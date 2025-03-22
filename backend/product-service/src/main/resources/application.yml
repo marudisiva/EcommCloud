@@ -3,7 +3,5 @@ spring:
     name: product-service
   data:
     mongodb:
-      uri: mongodb://mongo:27017/productdb
-      username: root
-      password: root
-      authentication-database: admin
+      uri: "mongodb://${MONGO_USER:root}:${MONGO_PASS:root}@${MONGO_HOST:mongodb}:${MONGO_PORT:27017}/${MONGO_DB:product_db}?authSource=admin"
+
